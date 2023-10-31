@@ -4,8 +4,6 @@ import tensorflow as tf
 
 from tensorflow.keras import utils
 
-dir = "/tmp"; true = True
-
 class Helper:
     def __init__(self, origin, filepath="/tmp", extract=True):
         self.origin  = origin
@@ -13,7 +11,7 @@ class Helper:
         self.extract = extract
 
     @property
-    def filer(self):
+    def Filer(self):
         result = []
 
         utils.get_file(origin=self.origin, cache_dir=self.filepath, extract=self.extract)
@@ -29,7 +27,7 @@ class Helper:
         return result
 
 
-    def filta(self, base):
+    def Filter(self, base):
         i = 0
         for folder in os.listdir(base):
             filepath = os.path.join(base, folder)
@@ -46,7 +44,7 @@ class Helper:
         return i
 
     @classmethod
-    def trainest(self, source, training, testing, train_split=0.9):
+    def Traintest(self, source, training, testing, train_split=0.9):
         shuffle_data = random.sample(os.listdir(source), len(os.listdir(source)))
         total_train = int(len(shuffle_data) * train_split)
         total_test = len(os.listdir(source)) - total_train
