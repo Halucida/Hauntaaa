@@ -4,7 +4,9 @@ import tensorflow as tf
 
 from tensorflow.keras import utils
 
-class Haunt:
+dir = "/tmp"; true = True
+
+class Helper:
     def __init__(self, origin, filepath="/tmp", extract=True):
         self.origin  = origin
         self.filepath = filepath
@@ -14,7 +16,7 @@ class Haunt:
     def filer(self):
         result = []
 
-        utils.get_file(origin=self.origin, cache_dir=dir, extract=self.extract)
+        utils.get_file(origin=self.origin, cache_dir=self.filepath, extract=self.extract)
 
         for i in os.listdir("/tmp/datasets"):
             if os.path.isdir(os.path.join("/tmp/datasets", i)):
