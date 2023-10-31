@@ -11,8 +11,8 @@ class Haunt:
         self.extract = extract
 
     @property
-    def Filer(self):
-        result = {}
+    def filer(self):
+        result = []
 
         utils.get_file(origin=self.origin, cache_dir=dir, extract=self.extract)
 
@@ -22,12 +22,12 @@ class Haunt:
 
         for p in os.listdir(path):
             if os.path.isdir(os.path.join(path, p)):
-                result[p] = os.path.join(path, p)
+                result.append(os.path.join(path, p))
 
         return result
 
 
-    def Filter(self, base):
+    def filta(self, base):
         i = 0
         for folder in os.listdir(base):
             filepath = os.path.join(base, folder)
@@ -44,7 +44,7 @@ class Haunt:
         return i
 
     @classmethod
-    def Trainest(self, source, training, testing, train_split=0.9):
+    def trainest(self, source, training, testing, train_split=0.9):
         shuffle_data = random.sample(os.listdir(source), len(os.listdir(source)))
         total_train = int(len(shuffle_data) * train_split)
         total_test = len(os.listdir(source)) - total_train
